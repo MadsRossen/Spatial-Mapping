@@ -20,10 +20,10 @@ RUN locale-gen en_US en_US.UTF-8 && \
     update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 && \
     export LANG=en_US.UTF-8
 
-RUN apt install -y software-properties-common \
+RUN apt install software-properties-common
 RUN apt add-apt-repository universe
 
-# Specify the distribution of ROS2
+# Specify the distribution of ROS2s
 ENV ROS_DISTRO=$distro
 ENV DEBIAN_FRONTEND=noninteractive
 ENV ROS_PYTHON_VERSION=3
