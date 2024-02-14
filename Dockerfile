@@ -34,8 +34,7 @@ ENV ROS_PYTHON_VERSION=3
 RUN apt install -y ros-$ROS_DISTRO-desktop \
                 python3-colcon-common-extensions \
                 python3-rosdep \
-                python3-argcomplete \
-    && rm -rf /var/lib/apt/lists/*rm 
+                python3-argcomplete
 
 # Initialize rosdep
 RUN rosdep init && rosdep update
