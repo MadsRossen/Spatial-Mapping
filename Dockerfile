@@ -32,7 +32,7 @@ ENV ROS_PYTHON_VERSION=3
 
 # Add key
 RUN curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-RUN RUN apt-get update --fix-missing
+RUN apt update
 RUN tee /etc/apt/sources.list.d/ros2.list > /dev/null
 
 RUN apt update
