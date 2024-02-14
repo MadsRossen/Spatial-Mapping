@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
                       locales \
                       curl \
                       gnupg2 \
+                      software-properties-common \
                       lsb-release \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*rm 
@@ -20,7 +21,7 @@ RUN locale-gen en_US en_US.UTF-8 && \
     update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 && \
     export LANG=en_US.UTF-8
 
-RUN apt install -y software-properties-common
+RUN apt update
 RUN apt add-apt-repository universe
 
 # Specify the distribution of ROS2s
