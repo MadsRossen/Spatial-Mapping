@@ -29,3 +29,23 @@ RUN sh -c 'echo "deb [arch=amd64,arm64] http:packages.ros.org/ros2/ubuntu `lsb_r
 ENV ROS_DISTRO=$distro
 ENV DEBIAN_FRONTEND=noninteractive
 ENV ROS_PYTHON_VERSION=3
+
+# Install ROS2
+RUN apt install -y ros-$ROS_DISTRO-desktop \
+                python3-colcon-common-extensions \
+                python3-rosdep \
+                python3-argcomplete \
+    && rm -rf /var/lib/apt/lists/*rm 
+
+# Initialize rosdep
+RUN rosdep init && rosdep update
+
+# Setup scripts
+RUN echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> /root/.bashrc
+
+# Set the entry point
+COPY ./ros_entrypoint.sh /
+RUN chmod +x /ros_entrypoint.sh
+
+ENTRYPOINT ["/ros_entrypoint.sh"]
+CMD ["bash"]
