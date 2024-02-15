@@ -12,9 +12,7 @@ RUN apt-get update && apt-get install -y \
                       curl \
                       gnupg2 \
                       software-properties-common \
-                      lsb-release \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*rm 
+                      lsb-release
 
 # Set the locale
 RUN locale-gen en_US en_US.UTF-8 && \
