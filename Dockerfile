@@ -24,6 +24,7 @@ RUN locale-gen en_US en_US.UTF-8 && \
 RUN apt-get update
 RUN add-apt-repository universe
 RUN apt-get update --fix-missing
+RUN apt-get upgrade
 
 # Specify the distribution of ROS2s
 ENV ROS_DISTRO=$distro
@@ -42,7 +43,7 @@ RUN apt-get install -y ros-humble-desktop \
                 python3-colcon-common-extensions \
                 python3-rosdep \
                 python3-argcomplete
-
+RUN apt-get install ros-dev-tools
 # Initialize rosdep
 RUN rosdep init && rosdep update
 
