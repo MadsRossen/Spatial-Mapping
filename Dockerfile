@@ -1,5 +1,5 @@
 FROM ubuntu:22.04
-FROM ros:humble-desktop
+FROM osrf/ros:humble-desktop
 LABEL name = "Mads Rossen"
 LABEL mail = "madsrossen@me.com"
 LABEL version = "0.1"
