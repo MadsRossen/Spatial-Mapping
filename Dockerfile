@@ -38,6 +38,7 @@ RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/r
 RUN tee /etc/apt/sources.list.d/ros2.list > /dev/null
 
 RUN apt-get update
+RUN apt-get upgrade -y
 
 # Install ROS2
 RUN apt-get install -y ros-$ROS_DISTRO-desktop \
