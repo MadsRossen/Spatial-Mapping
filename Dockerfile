@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 LABEL name = "Mads Rossen"
 LABEL mail = "madsrossen@me.com"
 LABEL version = "0.1"
