@@ -39,11 +39,12 @@ RUN tee /etc/apt/sources.list.d/ros2.list > /dev/null
 RUN apt-get update
 
 # Install ROS2
-RUN apt-get install -y ros-humble-desktop \
+RUN apt-get install -y ros-$ROS_DISTRO-desktop \
                 python3-colcon-common-extensions \
                 python3-rosdep \
-                python3-argcomplete
-RUN apt-get install ros-dev-tools
+                python3-argcomplete \
+                ros-dev-tools
+
 # Initialize rosdep
 RUN rosdep init && rosdep update
 
