@@ -24,7 +24,7 @@ RUN locale-gen en_US en_US.UTF-8 && \
 RUN apt-get update
 RUN add-apt-repository universe
 RUN apt-get update --fix-missing
-RUN apt-get upgrade
+RUN apt-get upgrade -y
 
 # Specify the distribution of ROS2s
 ENV ROS_DISTRO=$distro
