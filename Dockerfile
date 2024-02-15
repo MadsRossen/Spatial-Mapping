@@ -1,4 +1,5 @@
 FROM ubuntu:22.04
+FROM ros:humble-desktop
 LABEL name = "Mads Rossen"
 LABEL mail = "madsrossen@me.com"
 LABEL version = "0.1"
@@ -39,14 +40,14 @@ RUN apt-get update
 RUN apt-get upgrade -y
 
 # Install ROS2
-RUN apt-get install -y ros-$ROS_DISTRO-desktop \
-                python3-colcon-common-extensions \
-                python3-rosdep \
-                python3-argcomplete \
-                ros-dev-tools
+# RUN apt-get install -y ros-$ROS_DISTRO-desktop \
+#                 python3-colcon-common-extensions \
+#                 python3-rosdep \
+#                 python3-argcomplete \
+#                 ros-dev-tools
 
 # Initialize rosdep
-RUN rosdep init && rosdep update
+# RUN rosdep init && rosdep update
 
 # Setup scripts
 RUN echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> /root/.bashrc
