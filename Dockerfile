@@ -1,8 +1,8 @@
-FROM ubuntu:22.04
+FROM nvcr.io/nvidia/l4t-jetpack:r36.2.0
 FROM osrf/ros:humble-desktop-full
 LABEL name = "Mads Rossen"
 LABEL mail = "madsrossen@me.com"
-LABEL version = "0.1"
+LABEL version = "0.2"
 
 # Distribution of ROS2
 ARG DISTRO="humble"
