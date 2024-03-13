@@ -9,12 +9,13 @@ LABEL version = "0.2"
 ARG DISTRO="humble"
 
 # Install necessary software for the installation of ROS2
-RUN apt-get update && apt-get install -y \ 
-                      locales \
-                      curl \
-                      gnupg2 \
-                      software-properties-common \
-                      lsb-release
+RUN apt-get update
+# RUN apt-get install -y \ 
+#                       locales \
+#                       curl \
+#                       gnupg2 \
+#                       software-properties-common \
+#                       lsb-release
 
 # Specify the distribution of ROS2s
 ENV ROS_DISTRO=$DISTRO
