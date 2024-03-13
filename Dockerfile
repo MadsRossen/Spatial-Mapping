@@ -15,16 +15,16 @@ ARG ZED_SDK_PATCH=5
 ARG L4T_MAJOR=35
 ARG L4T_MINOR=3
 
-RUN echo "# R${L4T_MAJOR} (release), REVISION: ${L4T_MINOR}" > /etc/nv_tegra_release && \
-    apt-get update -y || true && \
-    wget -q --no-check-certificate -O ZED_SDK_Linux_JP.run \
-    https://download.stereolabs.com/zedsdk/${ZED_SDK_MAJOR}.${ZED_SDK_MINOR}/l4t${L4T_MAJOR}.${L4T_MINOR}/jetsons && \
-    chmod +x ZED_SDK_Linux_JP.run ; ./ZED_SDK_Linux_JP.run silent skip_tools && \
-    rm -rf /usr/local/zed/resources/* && \
-    rm -rf ZED_SDK_Linux_JP.run && \
-    rm -rf /var/lib/apt/lists/*
+# RUN echo "# R${L4T_MAJOR} (release), REVISION: ${L4T_MINOR}" > /etc/nv_tegra_release && \
+#     apt-get update -y || true && \
+#     wget -q --no-check-certificate -O ZED_SDK_Linux_JP.run \
+#     https://download.stereolabs.com/zedsdk/${ZED_SDK_MAJOR}.${ZED_SDK_MINOR}/l4t${L4T_MAJOR}.${L4T_MINOR}/jetsons && \
+#     chmod +x ZED_SDK_Linux_JP.run ; ./ZED_SDK_Linux_JP.run silent skip_tools && \
+#     rm -rf /usr/local/zed/resources/* && \
+#     rm -rf ZED_SDK_Linux_JP.run && \
+#     rm -rf /var/lib/apt/lists/*
 
-RUN python3 /usr/local/zed/get_python_api.py
+# RUN python3 /usr/local/zed/get_python_api.py
 
 
 # Install necessary software for the installation of ROS2
