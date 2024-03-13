@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/l4t-jetpack:r35.3.0
+FROM nvcr.io/nvidia/l4t-jetpack:r35.3.1
 # FROM osrf/ros:humble-desktop-full
 # FROM stereolabs/zedbot:zed-ros2-wrapper_l4t35_1_humble_
 LABEL name = "Mads Rossen"
