@@ -9,8 +9,7 @@ LABEL version = "0.2"
 ARG DISTRO="humble"
 
 # Install necessary software for the installation of ROS2
-RUN apt-get update
-RUN apt-get install -y \ 
+RUN apt-get update && apt-get install -y \ 
                       locales \
                       curl \
                       gnupg2 \
