@@ -1,12 +1,31 @@
 FROM nvcr.io/nvidia/l4t-jetpack:r36.2.0
 FROM osrf/ros:humble-desktop-full
-FROM stereolabs/zedbot:zed-ros2-wrapper_l4t35_1_humble_
+# FROM stereolabs/zedbot:zed-ros2-wrapper_l4t35_1_humble_
 LABEL name = "Mads Rossen"
 LABEL mail = "madsrossen@me.com"
 LABEL version = "0.2"
 
 # Distribution of ROS2
 ARG DISTRO="humble"
+
+# Install the ZED SDK
+ARG ZED_SDK_MAJOR=4
+ARG ZED_SDK_MINOR=0
+ARG ZED_SDK_PATCH=5
+ARG L4T_MAJOR=35
+ARG L4T_MINOR=3
+
+RUN echo "# R${L4T_MAJOR} (release), REVISION: ${L4T_MINOR}" > /etc/nv_tegra_release && \
+    apt-get update -y || true && \
+    wget -q --no-check-certificate -O ZED_SDK_Linux_JP.run \
+    https://download.stereolabs.com/zedsdk/${ZED_SDK_MAJOR}.${ZED_SDK_MINOR}/l4t${L4T_MAJOR}.${L4T_MINOR}/jetsons && \
+    chmod +x ZED_SDK_Linux_JP.run ; ./ZED_SDK_Linux_JP.run silent skip_tools && \
+    rm -rf /usr/local/zed/resources/* && \
+    rm -rf ZED_SDK_Linux_JP.run && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN python3 /usr/local/zed/get_python_api.py
+
 
 # Install necessary software for the installation of ROS2
 RUN apt-get update && apt-get install -y \ 
