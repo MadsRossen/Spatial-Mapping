@@ -1,5 +1,5 @@
 FROM nvcr.io/nvidia/l4t-jetpack:r36.2.0
-FROM osrf/ros:humble-desktop-full
+# FROM osrf/ros:humble-desktop-full
 FROM stereolabs/zedbot:zed-ros2-wrapper_l4t35_1_humble_
 LABEL name = "Mads Rossen"
 LABEL mail = "madsrossen@me.com"
@@ -10,12 +10,12 @@ ARG DISTRO="humble"
 
 # Install necessary software for the installation of ROS2
 RUN apt-get update
-# RUN apt-get install -y \ 
-#                       locales \
-#                       curl \
-#                       gnupg2 \
-#                       software-properties-common \
-#                       lsb-release
+RUN apt-get install -y \ 
+                      locales \
+                      curl \
+                      gnupg2 \
+                      software-properties-common \
+                      lsb-release
 
 # Specify the distribution of ROS2s
 ENV ROS_DISTRO=$DISTRO
