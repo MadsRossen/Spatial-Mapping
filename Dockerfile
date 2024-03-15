@@ -50,9 +50,9 @@ RUN apt-get update && apt-get upgrade -y
 # Setup scripts
 RUN echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> /root/.bashrc
 
-# Set the entry point
-COPY ./ros_entrypoint.sh /
-RUN chmod +x /ros_entrypoint.sh
+# # Set the entry point
+# COPY ./ros_entrypoint.sh /
+# RUN chmod +x /ros_entrypoint.sh
 
-ENTRYPOINT ["/ros_entrypoint.sh"]
-CMD ["bash"]
+# ENTRYPOINT ["/ros_entrypoint.sh"]
+# CMD ["bash"]
