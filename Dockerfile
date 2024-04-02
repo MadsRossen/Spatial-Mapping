@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
                       gnupg2 \
                       software-properties-common \
                       lsb-release
-
+RUN pwd
 # Setup scripts
 RUN echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> /root/.bashrc
 
