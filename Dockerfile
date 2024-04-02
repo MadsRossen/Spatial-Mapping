@@ -1,5 +1,5 @@
 FROM nvcr.io/nvidia/l4t-jetpack:r36.2.0
-FROM osrf/ros:humble-desktop-full
+FROM dustynv/ros:humble-ros-base-l4t-r36.2.0
 FROM stereolabs/zedbot:zed-ros2-wrapper_l4t35_1_humble_
 LABEL NAME = "Mads Rossen"
 LABEL MAIL = "madsrossen@me.com"
