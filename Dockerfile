@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
                       software-properties-common \
                       lsb-release
 RUN pwd
+RUN pwd
 RUN cd 
 RUN pwd
 # Setup scripts
