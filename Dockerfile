@@ -13,6 +13,8 @@ RUN apt-get update && apt-get install -y \
                       software-properties-common \
                       lsb-release
 RUN pwd
+RUN cd 
+RUN pwd
 # Setup scripts
 RUN echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> /root/.bashrc
 
