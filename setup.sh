@@ -17,6 +17,8 @@ echo -e "net.core.rmem_max=8388608\nnet.core.rmem_default=8388608\n" | sudo tee 
 
 cd ${ISAAC_ROS_WS}/src/isaac_ros_nvblox/
 
+echo "installing the dependencies for NvBlox"
+
 git clone --recurse-submodules https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox.git && \
     cd isaac_ros_nvblox && git lfs pull
 
