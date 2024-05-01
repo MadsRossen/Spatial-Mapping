@@ -13,3 +13,6 @@
 [submodule "src/isaac_ros_object_detection"]
 	path = src/isaac_ros_object_detection
 	url = https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_object_detection.git
+[submodule "src/realsense-ros"]
+	path = src/realsense-ros
+	url = https://github.com/IntelRealSense/realsense-ros.git
