@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo apt install libudev-dev
 
 sudo dpkg -i ftp.evocortex.com/libirimager-8.10.1-arm64.deb 
 
