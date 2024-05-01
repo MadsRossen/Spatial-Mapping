@@ -38,6 +38,13 @@ def generate_launch_description():
             output='screen'
         )
     
+    Optris_image_converter = Node(
+            package='optris_drivers2',  # Replace with your package name
+            executable='optris_colorconvert_node',
+            name='optris_colorconvert_node',
+            output='screen'
+        )
+    
     # Bag recording
     realsense_topics = [
         '/tf_static',
@@ -48,7 +55,8 @@ def generate_launch_description():
         '/camera/realsense_splitter_node/output/infra_1',
         '/camera/infra1/camera_info',
         '/camera/realsense_splitter_node/output/infra_2',
-        '/camera/infra2/camera_info'
+        '/camera/infra2/camera_info',
+        '/thermal_image_view'
     ]
     bag_record = ExecuteProcess(
         cmd=['ros2', 'bag', 'record', " ".join(realsense_topics)],
