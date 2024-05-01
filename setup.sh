@@ -15,6 +15,13 @@ sudo sysctl -w net.core.rmem_max=8388608 net.core.rmem_default=8388608
 
 echo -e "net.core.rmem_max=8388608\nnet.core.rmem_default=8388608\n" | sudo tee /etc/sysctl.d/60-cyclonedds.conf
 
+cd ${ISAAC_ROS_WS}/src/isaac_ros_nvblox/
+
+git clone --recurse-submodules https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox.git && \
+    cd isaac_ros_nvblox && git lfs pull
+
+cd ${ISAAC_ROS_WS}/src/isaac_ros_common && \
+  ./scripts/run_dev.sh ${ISAAC_ROS_WS}
 # Installing the Dependencies
 # (Add the commands from the text here)
 
