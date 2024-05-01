@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'sensor-fusion'
+package_name = 'sensor_fusion'
 
 setup(
     name=package_name,
@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'realsense_thermal_fusion = sensor-fusion.realsense_thermal_fusion:main'
+            'realsense_thermal_fusion = sensor_fusion.realsense_thermal_fusion:main'
         ],
     },
 )
