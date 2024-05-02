@@ -19,8 +19,9 @@ cd ${ISAAC_ROS_WS}/src/isaac_ros_nvblox/
 
 echo "installing the dependencies for NvBlox"
 
-git clone --recurse-submodules https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox.git && \
-    cd isaac_ros_nvblox && git lfs pull
+cd src && \
+    cd isaac_ros_nvblox && git lfs pull && \
+    git submodule update --init --recursive && \
 
 cd ${ISAAC_ROS_WS}/src/isaac_ros_common && \
   ./scripts/run_dev.sh ${ISAAC_ROS_WS}
