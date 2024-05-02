@@ -19,8 +19,7 @@ cd ${ISAAC_ROS_WS}/src/isaac_ros_nvblox/
 
 echo "installing the dependencies for NvBlox"
 
-cd src/ && \
-    cd isaac_ros_nvblox && git lfs pull && \
+cd ${ISAAC_ROS_WS}/src/isaac_ros_nvblox/ && git lfs pull && \
     git submodule update --init --recursive && \
 
 cd ${ISAAC_ROS_WS}/src/isaac_ros_common && \
