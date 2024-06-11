@@ -3,7 +3,7 @@
 	url = https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common.git
 [submodule "src/isaac_ros_nvblox"]
 	path = src/isaac_ros_nvblox
-	url = https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox.git
+	url = https://github.com/MadsRossen/isaac_ros_nvblox.git
 [submodule "src/optris_drivers2"]
 	path = src/optris_drivers2
 	url = https://github.com/evocortex/optris_drivers2.git
