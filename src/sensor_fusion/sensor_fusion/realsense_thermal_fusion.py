@@ -10,11 +10,15 @@ from message_filters import Subscriber, TimeSynchronizer
 from message_filters import Subscriber, ApproximateTimeSynchronizer
 from tf2_ros import TransformBroadcaster
 from tf2_ros.static_transform_broadcaster import StaticTransformBroadcaster
-import tf2_ros
+
+from ultralytics import YOLO
  
 class ThermalToColorOverlay(Node):
     def __init__(self):
         super().__init__('thermal_to_color_overlay')
+
+        self.rock_model = YOLO("src/sensor_fusion/model/model1.onnx")
+
         self.bridge = CvBridge()
         self.raw_image = None
  
@@ -76,12 +80,13 @@ class ThermalToColorOverlay(Node):
         try:
             color_image = self.bridge.imgmsg_to_cv2(color_data, "rgb8")
             thermal_image = self.bridge.imgmsg_to_cv2(thermal_data, "rgb8")
- 
+            
+            results = self.onnx_model(color_image)
             # Resize thermal image to match the color image size
             resized_thermal_image = cv2.resize(thermal_image, (color_image.shape[1], color_image.shape[0]))
  
             # Overlay the thermal image on the color image
-            overlaid_image = cv2.addWeighted(color_image, 0, resized_thermal_image, 1, 0)
+            overlaid_image = cv2.addWeighted(color_image, 1, resized_thermal_image, 0, 0)
  
             # Convert the overlaid image back to ROS Image message
             overlaid_msg = self.bridge.cv2_to_imgmsg(overlaid_image, "rgb8")
