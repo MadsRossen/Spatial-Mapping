@@ -1,6 +1,7 @@
 #!/bin/bash
 sudo apt update
 sudo apt install libudev-dev
+sudo ln -sv $(which pip3) /usr/bin/pip3.8
 pip3 install ultralytics
 
 ARCH=$(uname -m)
