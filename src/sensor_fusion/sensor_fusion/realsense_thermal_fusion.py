@@ -81,7 +81,7 @@ class ThermalToColorOverlay(Node):
             color_image = self.bridge.imgmsg_to_cv2(color_data, "rgb8")
             thermal_image = self.bridge.imgmsg_to_cv2(thermal_data, "rgb8")
             
-            results = self.onnx_model(color_image)
+            results = self.rock_model(color_image)
             # Resize thermal image to match the color image size
             resized_thermal_image = cv2.resize(thermal_image, (color_image.shape[1], color_image.shape[0]))
  
