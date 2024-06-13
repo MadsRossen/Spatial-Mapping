@@ -1,6 +1,7 @@
 #!/bin/bash
 sudo apt update
 sudo apt install libudev-dev
+pip3 install ultralytics
 
 ARCH=$(uname -m)
 if [ "$ARCH" == "x86_64" ]; then
